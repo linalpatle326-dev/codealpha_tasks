@@ -70,15 +70,17 @@ prevBtn.addEventListener("click", () => {
   playSong();
 });
 
-audio.addEventListener("timeupdate", (e) => {
-  const { currentTime, duration } = e.srcElement;
-  let progressPercent = (currentTime / duration) * 100;
-  progressBar.style.width = `${progressPercent}%`;
+audio.addEventListener("timeupdate", () => {
+  const { currentTime, duration } = audio;
+  if (duration) {
+    let progressPercent = (currentTime / duration) * 100;
+    progressBar.style.width = `${progressPercent}%`;
 
-  let currentMin = Math.floor(currentTime / 60);
-  let currentSec = Math.floor(currentTime % 60);
-  if (currentSec < 10) currentSec = `0${currentSec}`;
-  currentTimeEl.textContent = `${currentMin}:${currentSec}`;
+    let currentMin = Math.floor(currentTime / 60);
+    let currentSec = Math.floor(currentTime % 60);
+    if (currentSec < 10) currentSec = `0${currentSec}`;
+    currentTimeEl.textContent = `${currentMin}:${currentSec}`;
+  }
 });
 
 audio.addEventListener("loadeddata", () => {
@@ -93,7 +95,6 @@ progressArea.addEventListener("click", (e) => {
   let clickedOffsetX = e.offsetX;
   let songDuration = audio.duration;
   audio.currentTime = (clickedOffsetX / progressWidth) * songDuration;
-  playSong();
 });
 
 volumeSlider.addEventListener("input", (e) => {
@@ -104,5 +105,6 @@ audio.addEventListener("ended", () => {
   nextBtn.click();
 });
 
+// Load first song on page load
 loadSong(songs[songIndex]);
 audio.volume = 0.7;
