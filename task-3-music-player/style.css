@@ -1,54 +1,143 @@
-body{
-    margin:0;
-    padding:0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #667eea, #764ba2);
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-.player{
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    width:320px;
-    text-align:center;
-    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(#9A8C98, #4A4E69);
 }
 
-.cover{
-    width:100%;
-    border-radius:10px;
+.player {
+  width: 380px;
+  padding: 25px 30px;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
-h2{
-    margin-bottom:15px;
+.player h2 {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  color: #4A4E69;
+  margin-bottom: 20px;
 }
 
-.buttons button{
-    padding:10px 15px;
-    margin:10px;
-    border:none;
-    border-radius:50%;
-    background:#764ba2;
-    color:white;
-    font-size:18px;
-    cursor:pointer;
-    transition:0.3s;
+.img-area {
+  height: 256px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
 }
 
-.buttons button:hover{
-    background:#5a3a85;
-    transform:scale(1.1);
+.img-area img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
-#progress{
-    width:100%;
-    margin-top:15px;
+.song-details {
+  text-align: center;
+  margin: 20px 0;
 }
 
-.volume{
-    margin-top:15px;
+.song-details.name {
+  font-size: 21px;
+  font-weight: 500;
+  color: #22223B;
+}
+
+.song-details.artist {
+  font-size: 16px;
+  opacity: 0.8;
+  color: #4A4E69;
+}
+
+.progress-area {
+  height: 6px;
+  width: 100%;
+  border-radius: 50px;
+  background: #e0e0e0;
+  cursor: pointer;
+}
+
+.progress-bar {
+  height: inherit;
+  width: 0%;
+  position: relative;
+  border-radius: inherit;
+  background: #9A8C98;
+}
+
+.progress-bar span {
+  height: 12px;
+  width: 12px;
+  position: absolute;
+  border-radius: 50%;
+  background: #9A8C98;
+  top: 50%;
+  right: -5px;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.progress-area:hover.progress-bar span {
+  opacity: 1;
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5px;
+  font-size: 13px;
+  color: #4A4E69;
+}
+
+.controls {
+  margin: 40px 0 5px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.controls i {
+  font-size: 28px;
+  user-select: none;
+  background: #9A8C98;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
+
+.controls i:nth-child(2) {
+  font-size: 45px;
+}
+
+.volume {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.volume i {
+  color: #4A4E69;
+}
+
+.volume input {
+  width: 60%;
+  cursor: pointer;
 }
