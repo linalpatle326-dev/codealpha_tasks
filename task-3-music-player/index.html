@@ -1,47 +1,48 @@
-<!DOCTYPE html>
+
+      <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Music Player - CodeAlpha Task 3</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Music Player</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="player">
-    <h2>CodeAlpha Music Player</h2>
-
-    <div class="img-area">
-      <img src="assets/images/cover1.jpg" alt="cover" id="cover">
+  <h1>Music Player</h1>
+  
+  <div class="music-container">
+    <div class="img-container">
+      <img src="assets/images/cover1.jpg" alt="music-cover" id="cover">
     </div>
-
-    <div class="song-details">
-      <p class="name" id="song-name">Song Name</p>
-      <p class="artist" id="artist">Artist</p>
+    
+    <div class="music-info">
+      <h2 id="title">Song Title</h2>
+      <h3 id="artist">Artist</h3>
     </div>
-
-    <div class="progress-area">
-      <div class="progress-bar" id="progress-bar">
-        <span></span>
-      </div>
-      <div class="timer">
-        <span class="current" id="current-time">0:00</span>
-        <span class="duration" id="duration">0:00</span>
-      </div>
+    
+    <audio src="assets/songs/sample1.mp3" id="audio"></audio>
+    
+    <div class="progress-container" id="progress-container">
+      <div class="progress" id="progress"></div>
     </div>
-
-    <div class="controls">
-      <i id="prev" class="fa-solid fa-backward"></i>
-      <i id="play" class="fa-solid fa-play"></i>
-      <i id="next" class="fa-solid fa-forward"></i>
+    
+    <div class="time">
+      <span id="current-time">0:00</span>
+      <span id="duration">0:00</span>
     </div>
-
-    <div class="volume">
-      <i class="fa-solid fa-volume-high"></i>
-      <input type="range" id="volume" min="0" max="1" step="0.01" value="0.7">
+    
+    <div class="navigation">
+      <button id="prev" class="action-btn">
+        <i class="fas fa-backward"></i>
+      </button>
+      <button id="play" class="action-btn action-btn-big">
+        <i class="fas fa-play"></i>
+      </button>
+      <button id="next" class="action-btn">
+        <i class="fas fa-forward"></i>
+      </button>
     </div>
-
-    <audio id="audio" src=""></audio>
   </div>
 
   <script src="script.js"></script>
